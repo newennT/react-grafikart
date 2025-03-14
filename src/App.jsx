@@ -1,9 +1,9 @@
-import PartieDeux from "./partie-deux"
+import HookUseMemo from "./partie-deux/HookUseMemo"
 
 
 function App() {
   return <>
-    <PartieDeux />
+    <HookUseMemo />
   </>
 }
 

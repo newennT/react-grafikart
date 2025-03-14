@@ -6,9 +6,13 @@
  * @returns 
  */
 
+import { useId } from "react"
+
 export function Input ({placeholder, value, onChange}){
+    const id = useId()
     return <div>
         <input 
+            id={id}
             type="text" 
             className="form-control"
             value={value}

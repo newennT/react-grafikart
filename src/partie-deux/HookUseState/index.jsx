@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Input } from "./Components/Forms/Input"
-import { Checkbox } from "./Components/Forms/Checkbox"
+import { Input } from "../Components/Forms/Input"
+import { Checkbox } from "../Components/Forms/Checkbox"
 
-function PartieDeux(){
+function HookUseState(){
     const [showInput, setShowInput] = useState(true)
 
     return <>
@@ -103,4 +103,4 @@ function Timer(){
     </div>
 }
 
-export default PartieDeux
+export default HookUseState
