@@ -1,9 +1,9 @@
-import TpUn from "./tp-un"
+import PartieDeux from "./partie-deux"
 
 
 function App() {
   return <>
-    <TpUn />
+    <PartieDeux />
   </>
 }
 
