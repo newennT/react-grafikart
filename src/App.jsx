@@ -1,9 +1,9 @@
-import MemoisationUseCallback from "./partie-deux/MemoisationUseCallback"
+import Portails from "./partie-deux/Portails"
 
 
 function App() {
   return <>
-    <MemoisationUseCallback />
+    <Portails />
   </>
 }
 
