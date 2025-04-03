@@ -1,9 +1,9 @@
-import HookPersonnalise from "./partie-deux/HookPersonnalise"
+import MemoisationUseCallback from "./partie-deux/MemoisationUseCallback"
 
 
 function App() {
   return <>
-    <HookPersonnalise />
+    <MemoisationUseCallback />
   </>
 }
 
