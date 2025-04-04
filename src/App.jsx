@@ -1,9 +1,9 @@
-import TpUn from "./tp-un"
+import TpBlog from "./TpBlog"
 
 
 function App() {
   return <>
-    <TpUn />
+    <TpBlog />
   </>
 }
 
