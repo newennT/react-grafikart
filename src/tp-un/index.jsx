@@ -5,6 +5,8 @@ import { Range } from "./Components/Forms/Range"
 import { ProductRow } from "./Components/Product/ProductRow"
 import { ProductCategoryRow } from "./Components/Product/ProductCategoryRow"
 import { useState } from "react"
+import { ErrorBoundary } from "react-error-boundary";
+
 
 
 const PRODUCTS = [  
@@ -54,9 +56,20 @@ function TpUn(){
             onSearchChange={setSearch}
             showStockOnly={showStockOnly} 
             onStockOnlyChange={setShowStockOnly} />
-        <ProductTable products={visibleProducts} />
+        <ErrorBoundary
+            FallbackComponent={AlertError}
+            onReset={() => console.log('reset')}
+            >
+            <ProductTable products={visibleProducts} />
+        </ErrorBoundary>
         
     </>
+}
+
+function AlertError ({error, resetErrorBoundary}){
+    return <div className="alert alert-danger">{error.toString()}
+        <button className="btn btn-secondary" onClick={resetErrorBoundary}>Reset</button>
+    </div>
 }
 
 function SearchBar({showStockOnly, onStockOnlyChange, search, onSearchChange, range, onRangeChange}){
@@ -84,6 +97,8 @@ function SearchBar({showStockOnly, onStockOnlyChange, search, onSearchChange, ra
 }
 
 function ProductTable({products}){
+    if (!products) throw new Error("Produits introuvables !");
+
     const rows = []
     let lastCategory = null
 

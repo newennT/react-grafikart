@@ -1,9 +1,9 @@
-import Portails from "./partie-deux/Portails"
+import TpUn from "./tp-un"
 
 
 function App() {
   return <>
-    <Portails />
+    <TpUn />
   </>
 }
 
