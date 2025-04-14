@@ -2,24 +2,31 @@ import { useHashNavigation } from "./hooks/useHashNavigation"
 import { Home } from "./pages/home";
 import { Contact } from "./pages/Contact";
 import { Single } from "./pages/Single";
+import { NotFound } from "./pages/NotFound";
+import { Header } from "./components/Header";
+import { ErrorBoundary } from "react-error-boundary";
 
 function TpBlog(){
 
-const {page} = useHashNavigation();
-const pageContent = getPageContent(page);
+const {page, param} = useHashNavigation();
+const pageContent = getPageContent(page, param);
   
 return (<>
-  <p>
-    Page : {page}
-    <a href="#">Home</a>
-    <a href="#post">Article</a>
-    <a href="#contact">Contact</a>
-  </p>
-  {pageContent}
+  <Header page={page} />
+  <div className="container my-4">
+    <ErrorBoundary FallbackComponent={PageError}>
+      {pageContent}
+    </ErrorBoundary>
+  
+  </div>
 </>);
 }
 
-function getPageContent (page) {
+function PageError ({error}) {
+  return <Alert type="danger">{error.toString()}</Alert>
+}
+
+function getPageContent (page, param) {
   if (page === 'home') {
     return <Home />
   }
@@ -27,7 +34,7 @@ function getPageContent (page) {
     return <Contact />
   }
   if (page === 'post') {
-    return <Single />
+    return <Single postId={param} />
   }
   return <NotFound page={page}/>
 }

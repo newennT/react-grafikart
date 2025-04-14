@@ -13,7 +13,10 @@ export function useHashNavigation() {
         }
     }, []);
 
+    const cleanedHash = hash.replaceAll('#', '').toLowerCase()
+
     return {
-        page: hash.replaceAll('#', '').toLowerCase() || 'home'
+        page: cleanedHash ? cleanedHash.split(':')[0] : 'home',
+        param: cleanedHash.split(':')[1]
     }
 }
