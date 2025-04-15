@@ -1,9 +1,10 @@
-import TpBlog from "./TpBlog"
+import HookUseReducer from "./partie-trois/useReducer"
+
 
 
 function App() {
   return <>
-    <TpBlog />
+    <HookUseReducer />
   </>
 }
 
