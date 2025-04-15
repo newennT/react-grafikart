@@ -1,10 +1,11 @@
 import { useHashNavigation } from "./hooks/useHashNavigation"
 import { Home } from "./pages/home";
 import { Contact } from "./pages/Contact";
-import { Single } from "./pages/Single";
 import { NotFound } from "./pages/NotFound";
 import { Header } from "./components/Header";
 import { ErrorBoundary } from "react-error-boundary";
+import { lazy } from "react";
+import { Suspense } from "react";
 
 function TpBlog(){
 
@@ -34,7 +35,8 @@ function getPageContent (page, param) {
     return <Contact />
   }
   if (page === 'post') {
-    return <Single postId={param} />
+    const SingleLazy = lazy(() => import('./pages/Single'))
+    return <Suspense fallback={<div>Chargement des composants en cours</div>}><SingleLazy postId={param} /></Suspense>
   }
   return <NotFound page={page}/>
 }
