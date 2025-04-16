@@ -1,10 +1,8 @@
-import HookUseReducer from "./partie-trois/useReducer"
-
-
+import CoursReactRouter from "./cours-react-router"
 
 function App() {
   return <>
-    <HookUseReducer />
+    <CoursReactRouter />
   </>
 }
 
